@@ -514,6 +514,8 @@ tabs = html.Div(
                                 For the investigation, we utilize the Python 3.6 scripting language, the Pandas module for data processing, and the TextBlob module for text processing and sentiment polarity calculations. 
                                 We discuss average sentiment along with average rates of changes and points of inflections in the story’s chronology.
 
+                                [Written Report](https://1drv.ms/b/s!Aq67cso8WW_guYFGZ0b4m4hjBxAtkQ)
+
 
                                 **Aniket Pant, Viraj Kacker, Cole McKee, Lonnie Webb**
                                 ''')
