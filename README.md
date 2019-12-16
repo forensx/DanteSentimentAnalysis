@@ -3,6 +3,8 @@ In this work, we investigate the use of modern sentiment analysis algorithms in 
 
 ### REFERENCES
 Alighieri, D. (2005). The Divine Comedy, Complete, The Vision of Paradise, Purgatory and Hell. (R. H. Cary, Trans.) Retrieved from https://www.gutenberg.org/files/8800/8800-h/8800-h.htm
+
 Maite Taboada, J. B. (2011, 06). Lexicon-Based Methods for Sentiment Analysis. Computational Linguistics, 37(2), 267-307. doi:10.1162/COLI_a_00049
+
 Miller, G. A. (1995). WordNet: A Lexical Database for English. Communications of the ACM, 38(11), 39-41. doi:10.1145/219717.219748
 
