@@ -475,7 +475,7 @@ header = html.Div(
         html.A(
             id='gh-link',
             children = ["View on GitHub"],
-            href = "https://github.com/forensx/DanteSentimentAnalysis",
+            href = "https://github.com/forensx/DanteSentimentAnalysis/tree/herokuLiveDeploy",
             style = {'color': "white", 'border':"solid 1px white"}
         ),
         html.Img(
