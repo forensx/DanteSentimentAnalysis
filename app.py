@@ -52,6 +52,7 @@ def update_graph_single(section, df):
     sentiment_color = 'rgb(99, 110, 250)'
     first_derivative_color = 'rgb(239, 85, 59)'
     second_derivative_color = 'rgb(0, 204, 150)'
+    seperator_color = "#2F3591"
 
     annotation_size = 18
     title_size = 30
@@ -61,18 +62,29 @@ def update_graph_single(section, df):
     sentiment_width = 6
     derivative_width = 1.4
 
+    zeroline_width = 0.8
     # HOVER CODE per Section
     hover_code = ["{}: <br>Canto #{}".format(section, x) for x in range(1, len(df['Canto']))]
 
     fig = go.Figure()
     fig.add_trace(
-    go.Scatter(x=df['Canto'], y=df['Sentiment'],
-            mode='lines+markers',
-            hovertext=hover_code,
-            hoverinfo="text",
-            name='Sentiment Polarity',
-            line=dict(width=sentiment_width, color = sentiment_color))
+        go.Scatter(x=[1,len(df)], y=[0, 0],
+            mode='lines',
+            hoverinfo="skip",
+            showlegend=False,
+            name='0 line - dashed',
+            line=dict(width=zeroline_width,
+                    color = seperator_color,
+                    dash = "dash"))
     )
+    fig.add_trace(
+        go.Scatter(x=df['Canto'], y=df['Sentiment'],
+                mode='lines+markers',
+                hovertext=hover_code,
+                hoverinfo="text",
+                name='Sentiment Polarity',
+                line=dict(width=sentiment_width, color = sentiment_color))
+        )
     fig.add_trace(
         go.Scatter(x=df['Canto'], y=df['FirstDerivative'],
             mode='lines',
@@ -147,6 +159,7 @@ def update_graph_all():
 
     sentiment_width = 4
     derivative_width = 1.4
+    zeroline_width = 0.8
 
     # HOVER CODE
     inferno_hover = ["Inferno: <br>Canto #{}".format(x) for x in range(1, 35)]
@@ -162,7 +175,7 @@ def update_graph_all():
                         hoverinfo="skip",
                         showlegend=False,
                         name='0 line - dashed',
-                        line=dict(width=sentiment_width,
+                        line=dict(width=zeroline_width,
                                 color = seperator_color,
                                 dash = "dash"))
     )
@@ -176,6 +189,7 @@ def update_graph_all():
                         line=dict(width=sentiment_width,
                                 color = sentiment_color))
     )
+
     fig.add_trace(
         go.Scatter(x=df_inferno['Canto'], y=df_inferno['FirstDerivative'],
                         mode='lines',
@@ -184,6 +198,7 @@ def update_graph_all():
                         hoverinfo='skip',
                         line=dict(width=derivative_width, color = first_derivative_color))
     )
+
     fig.add_trace(
         go.Scatter(x=df_inferno['Canto'], y=df_inferno['SecondDerivative'],
                         mode='lines', name='Second Derivative',
@@ -234,7 +249,7 @@ def update_graph_all():
 
     # start paradiso
     fig.add_trace(
-        go.Scatter(x=[67, 67], y=[-1, 1],
+        go.Scatter(x=[66, 66], y=[-1, 1],
                         mode='lines',
                         name='Paradiso Splitter',
                         showlegend=False,
@@ -245,7 +260,7 @@ def update_graph_all():
     )
 
     fig.add_trace(
-        go.Scatter(x=[x + 66 for x in df_paradiso['Canto']], y=df_paradiso['Sentiment'],
+        go.Scatter(x=[x + 65 for x in df_paradiso['Canto']], y=df_paradiso['Sentiment'],
                         mode='lines+markers',
                         name='Sentiment Polarity - Paradiso',
                         hovertext=paradiso_hover,
@@ -255,7 +270,7 @@ def update_graph_all():
                                 color = sentiment_color))
     )
     fig.add_trace(
-        go.Scatter(x=[x + 66 for x in df_paradiso['Canto']], y=df_paradiso['FirstDerivative'],
+        go.Scatter(x=[x + 65 for x in df_paradiso['Canto']], y=df_paradiso['FirstDerivative'],
                         mode='lines',
                         name='First Derivative',
                         hoverinfo='skip',
@@ -264,7 +279,7 @@ def update_graph_all():
                         line=dict(width=derivative_width, color = first_derivative_color))
     )
     fig.add_trace(
-        go.Scatter(x=[x + 66 for x in df_paradiso['Canto']], y=df_paradiso['SecondDerivative'],
+        go.Scatter(x=[x + 65 for x in df_paradiso['Canto']], y=df_paradiso['SecondDerivative'],
                         mode='lines', name='Second Derivative',
                         legendgroup = "paradiso_derivatives",
                         showlegend=True,
@@ -608,4 +623,4 @@ def update_canto(selection, section):
     )
 
 if __name__ == "__main__":
-    app.run_server(threaded = True, port=8080)
+    app.run_server(threaded = True, port=8080, debug=True)

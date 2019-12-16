@@ -4,7 +4,7 @@
   }
 
   ._dash-loading-callback::after {
-    content: 'Rendering plot with new raster...';
+    content: 'Rendering plot...';
     font-family: Open Sans;
     padding-top: 50px;
     padding-left: 10%;
