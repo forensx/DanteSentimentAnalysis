@@ -155,6 +155,18 @@ def update_graph_all():
 
 
     fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(x=[1,99], y=[0, 0],
+                        mode='lines',
+                        hoverinfo="skip",
+                        showlegend=False,
+                        name='0 line - dashed',
+                        line=dict(width=sentiment_width,
+                                color = seperator_color,
+                                dash = "dash"))
+    )
+
     fig.add_trace(
         go.Scatter(x=df_inferno['Canto'], y=df_inferno['Sentiment'],
                         mode='lines+markers',
