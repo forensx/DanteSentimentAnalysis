@@ -52,7 +52,7 @@ def update_graph_single(section, df):
     sentiment_color = 'rgb(99, 110, 250)'
     first_derivative_color = 'rgb(239, 85, 59)'
     second_derivative_color = 'rgb(0, 204, 150)'
-    seperator_color = "#2F3591"
+    seperator_color = "#3039B2"
 
     annotation_size = 18
     title_size = 30
@@ -150,7 +150,7 @@ def update_graph_all():
     sentiment_color = 'rgb(99, 110, 250)'
     first_derivative_color = 'rgb(239, 85, 59)'
     second_derivative_color = 'rgb(0, 204, 150)'
-    seperator_color = "rgb(245,245,245)"
+    seperator_color = "#3039B2"
 
     annotation_size = 18
     title_size = 30
