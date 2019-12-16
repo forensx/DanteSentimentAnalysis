@@ -1,21 +1,8 @@
-# DNN-Sentiment
-Convolutional and recurrent deep neural networks for text sentiment analysis.
+# Lexicon-based Sentiment Analysis of Dante's Divine Comedy
+In this work, we investigate the use of modern sentiment analysis algorithms in the analysis of Dante’s Divine Comedy. We utilize lexicon-trained sentiment analysis per canto through the three sections of Dante’s Inferno, Purgatorio, and Paradiso. For the investigation, we utilize the Python 3.6 scripting language, the Pandas module for data processing, and the TextBlob module for text processing and sentiment polarity calculations. The TextBlob module utilizes a lexicon-based sentiment mapping, meaning it is trained on a specific, internal dataset that has been previously labeled with sentiment and generalized for cross-domain use to account for dependencies in context and sense of usage (Maite Taboada, 2011). In this case, the TextBlob sentiment model is trained on the WordNet3 lexical database (Miller, 1995). For analysis, we utilize the Project Gutenberg rendition of Dante’s Divine Comedy as translated by Rev. H. F. Cary (Alighieri, 2005). Given the construction of the sentiment analysis algorithm, the clear dependence of the training lexicon should be noted, giving rise to a limitation in this study: the translation of meaning from WordNet3 lexicon to our own text-specific, Dante based lexicon. Since we produce our own domain-specific lexicon, there is some loss in meaning, and hence, some inaccuracy in calculating sentiment. This limitation is additionally compounded by issues and stylistic choices in translation from the text’s original language, Italian. In this work, we present key findings in a study of average sentiment across all Canto’s and all sections of Dante’s Divine Comedy, as presented in the Project Gutenberg edition (Alighieri, 2005). We discuss average sentiment along with average rates of changes and points of inflections in the story’s chronology. The project can be visualized at https://divine-comedy-analysis.herokuapp.com/.
 
-Convolutional model based on [cnn-text-classification-tf](https://github.com/dennybritz/cnn-text-classification-tf).
+### REFERENCES
+Alighieri, D. (2005). The Divine Comedy, Complete, The Vision of Paradise, Purgatory and Hell. (R. H. Cary, Trans.) Retrieved from https://www.gutenberg.org/files/8800/8800-h/8800-h.htm
+Maite Taboada, J. B. (2011, 06). Lexicon-Based Methods for Sentiment Analysis. Computational Linguistics, 37(2), 267-307. doi:10.1162/COLI_a_00049
+Miller, G. A. (1995). WordNet: A Lexical Database for English. Communications of the ACM, 38(11), 39-41. doi:10.1145/219717.219748
 
-Recurrent model based on [example by aymericdamien](https://github.com/aymericdamien/TensorFlow-Examples/blob/master/examples/3_NeuralNetworks/recurrent_network.py).
-
-Both models written in Tensorflow, and have been designed to allow for analyzing of sentinment of large text documents,
-such as works of literature once trained. Both can use word2vec to obtain pre-trained word embeddings to improve performance.
-
-To train each model, run train_cnn.py and train_rnn.py.
-
-### In order to obtain sentiment of a text file, run:
-
-`python generateSentiment.py textfile model checkpoint`
-
-`textfile` is the document to analyze sentiment from. Don't include .txt extension. For example, when processing 'kafka.txt,' use 'kafka'
-
-`model` is either "RNN" or "CNN"
-
-`checkpoint` is the latest model checkpoint, contained in the runs or rnn_runs folder
