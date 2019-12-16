@@ -568,7 +568,7 @@ def update_canto(selection, section):
     if selection is None:
         return html.P("Select a canto by clicking on the points on the graph!")
     elif section =='all':
-        hovertext = (selection['points'][0]['hovertext'])
+        hovertext = selection['points'][0]['hovertext']
         cantoNumber = hovertext[hovertext.find('#')+1:]
         section = hovertext[:hovertext.find(':')]
         data = get_text(section, cantoNumber)
